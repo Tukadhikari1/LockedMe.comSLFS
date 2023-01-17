@@ -1,0 +1,55 @@
+
+
+
+import java.util.Scanner;
+
+public class QueueImp {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the size of the Queue");
+		int size=sc.nextInt();
+		int Q[]=new int[size];
+		int front=-1,rear=-1;
+		System.out.println(" Q operations");
+		while(true) {
+			System.out.println("enter the choice 1.enqueue 2.dequeue 3. display 4 . exit");
+			int ch=sc.nextInt();
+			switch(ch) {
+			case 1://over flow
+				if(rear==size-1) {
+					System.out.println("Q is full no insertion");
+				}
+				else{
+					System.out.println("enter the ele to be inserted into the queue");
+					int ele=sc.nextInt();
+					rear++;
+					Q[rear]=ele;
+					front=0;
+				}
+				break;
+			case 2://under flow
+					if((front==-1&&rear==-1)||(front>rear)) {
+						System.out.println("Q is empty no del opr");
+					}
+					else {
+						front=front+1;
+					}
+				break;
+			case 3:if((front==-1&&rear==-1)||(front>rear)) {
+				System.out.println("Q is empty");
+			}
+			else {
+				for(int i=front;i<=rear;i++) {
+					System.out.println(Q[i]);
+				}
+			}
+				break;
+			case 4:System.exit(0);
+			break;
+			default:System.out.println("pls check the input entered");
+			break;
+			}
+		}
+	}
+}
+
